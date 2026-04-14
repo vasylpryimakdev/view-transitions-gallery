@@ -90,6 +90,7 @@ img {
   padding: 10px;
   cursor: pointer;
   transition: border-color 0.3s;
+  view-transition-class: grid-item;
 }
 .grid .grid-item.active {
   border-color: #6ec7d5;
@@ -203,6 +204,14 @@ img {
 
 ::view-transition-new(image) {
   object-fit: cover;
+}
+
+@media (prefers-reduced-motion) {
+  ::view-transition-group(*),
+  ::view-transition-new(*),
+  ::view-transition-old(*) {
+    animation: none !important;
+  }
 }
 
 /* ::view-transition-old(grid),
